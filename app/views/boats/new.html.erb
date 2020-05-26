@@ -7,8 +7,10 @@
         <%= f.input :city %>
         <%= f.input :description %>
         <%= f.input :number_of_people %>
-        <%= f.button :submit %>
+        <%= f.input :category %>
+        <%= f.button :submit, class: "btn btn-primary btn-lg"%>
       <% end %>
     </div>
+  <%= link_to "All the boats", boats_path, class: "btn btn-primary btn-lg" %>
   </div>
 </div>
