@@ -1,26 +1,12 @@
 <div class="container">
   <h1><%= @boat.name %></h1>
-  <%= link_to "Show all boats", root_path %>
+  <%= link_to "Show all boats", boats_path %>
   <br>
 
   <div class="row">
     <div class="col-sm-12 col-md-6">
       <h3>Boats</h3>
-      <table class="table table-bordered">
-        <tbody>
-          <thead>
-            <th>z</th>
-            <th>y</th>
-            <th>x</th>
-          </thead>
-          <% @boats.each do |boat| %>
-            <tr>
-              <td><%= boat.name %></td>
-              <td><%= boat.description %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+
     </div>
     <div class="col-sm-12 col-md-6">
       <%= render "boats/new", boat: @boat %>

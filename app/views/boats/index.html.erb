@@ -2,6 +2,23 @@
   <div class="banner-content">
     <h1>Boats to rent</h1>
     <p>Amazing boats for a great summer experience</p>
-     <%= link_to "Boats", new_boat_path, class: "btn btn-primary btn-lg" %>
+     <%= link_to "Boats", boats_path, class: "btn btn-primary btn-lg" %>
+  </div>
+  <div>
+    <table class="table table-bordered">
+      <tbody>
+        <thead>
+          <th>z</th>
+          <th>y</th>
+          <th>x</th>
+        </thead>
+        <% @boats.each do |boat| %>
+          <tr>
+            <td><%= boat.name %></td>
+            <td><%= boat.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
