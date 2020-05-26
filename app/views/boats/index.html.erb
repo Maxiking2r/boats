@@ -2,23 +2,29 @@
   <div class="banner-content">
     <h1>Boats to rent</h1>
     <p>Amazing boats for a great summer experience</p>
-     <%= link_to "Boats", boats_path, class: "btn btn-primary btn-lg" %>
+
   </div>
   <div>
     <table class="table table-bordered">
       <tbody>
         <thead>
-          <th>z</th>
-          <th>y</th>
-          <th>x</th>
+          <th>City</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Number of People</th>
         </thead>
         <% @boats.each do |boat| %>
-          <tr>
-            <td><%= boat.name %></td>
-            <td><%= boat.description %></td>
-          </tr>
+            <tr>
+              <td><%= boat.city %></td>
+              <td><%= link_to"#{boat.description}", boat_path(boat) %></td>
+              <td><%= boat.category %></td>
+              <td><%= boat.number_of_people %></td>
+            </tr>
         <% end %>
       </tbody>
     </table>
   </div>
 </div>
+
+<%= link_to "Create Boat", new_boat_path, class: "btn btn-primary btn-lg" %>
+
