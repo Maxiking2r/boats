@@ -1,4 +1,13 @@
 class BoatsController < ApplicationController
+#before_action :set_task, only: [ :show, :edit, :update, :destroy ]
+  def index
+    @boats = Boat.all
+  end
+
+  def show
+    @boat = Boat.find(params[:id])
+  end
+  
   def new
     @boat = Boat.new
   end
@@ -17,4 +26,5 @@ class BoatsController < ApplicationController
   def boat_params
     params.require(:boat).permit(:city, :description, :category, :number_of_people)
   end
+
 end
