@@ -7,14 +7,15 @@ class BoatsController < ApplicationController
   def show
     @boat = Boat.find(params[:id])
   end
-  
+
   def new
     @boat = Boat.new
   end
 
   def create
     @boat = Boat.new(boat_params)
-    if @boat.save
+    @boat.user = current_user
+    if @boat.save!
       redirect_to boat_path(@boat)
     else
       render :new
