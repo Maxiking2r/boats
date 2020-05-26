@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>Add your boat</h1>
+
+      <%= simple_form_for(@boat) do |f| %>
+        <%= f.input :city %>
+        <%= f.input :description %>
+        <%= f.input :number_of_people %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
