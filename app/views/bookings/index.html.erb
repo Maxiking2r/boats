@@ -1,0 +1,18 @@
+<h2>Your Boat Bookings ⛵️</h2>
+
+<ul>
+  <% @bookings.each do |booking| %>
+    <li> Start Date: <%= booking.start_date %> | End Date: <%= booking.end_date %></li>
+    <li> Booking: <%= booking.confirmed %></li>
+    <li> Boat: <%= booking.boat_id %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Go back to Boats", boats_path, class: "btn btn-primary btn-lg" %>
+
+<!-- "start_date"
+"end_date"
+"confirmed"
+"user_id", null: false
+"boat_id", null: false -->
+

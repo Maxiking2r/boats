@@ -1,1 +1,12 @@
-<h1>Bookings Show Page</h1>
+<h2>Your Boat 🛶</h2>
+
+<ul>
+    <li> Start Date: <%= @booking.start_date %> | End Date: <%= @booking.end_date %></li>
+    <li> Booking: <%= @booking.boat.description %></li>
+</ul>
+
+<!-- some code
+ -->
+
+<%= link_to "My Bookings", bookings_path, class: "btn btn-primary btn-lg" %>
+

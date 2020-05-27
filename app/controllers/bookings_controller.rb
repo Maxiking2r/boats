@@ -1,7 +1,13 @@
 class BookingsController < ApplicationController
-  before_action :set_boat, only: [:show, :new, :create]
+  before_action :set_boat, only: [:create]
+
+  def index
+    @user = current_user
+    @bookings = @user.bookings
+  end
 
   def show
+    @user = current_user
     @booking = Booking.find(params[:id])
   end
 
@@ -20,14 +26,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  def index
-    @bookings = Booking.all
-  end
-
-  def show
-    @booking = Booking.find(params[:id])
-  end
-
   private
 
   def set_boat
@@ -35,6 +33,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :user_id, :boat_id)
   end
 end
