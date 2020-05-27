@@ -16,7 +16,7 @@
         <% @boats.each do |boat| %>
             <tr>
               <td><%= boat.city %></td>
-              <td><%= link_to"#{boat.description}", boat_path(boat) %></td>
+              <td class="text-decoration-none" ><%= link_to"#{boat.description}", boat_path(boat) %></td>
               <td><%= boat.category %></td>
               <td><%= boat.number_of_people %></td>
             </tr>
@@ -26,5 +26,5 @@
   </div>
 </div>
 
-<%= link_to "Create Boat", new_boat_path, class: "btn btn-primary btn-lg" %>
+
 
