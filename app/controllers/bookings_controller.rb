@@ -1,5 +1,9 @@
 class BookingsController < ApplicationController
-  before_action :set_boat, only: [:show, :new, :create]
+  before_action :set_boat, only: [:create]
+
+  def index
+    @bookings = Booking.all
+  end
 
   def show
     @booking = Booking.find(params[:id])
@@ -18,14 +22,6 @@ class BookingsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def index
-    @bookings = Booking.all
-  end
-
-  def show
-    @booking = Booking.find(params[:id])
   end
 
   private
