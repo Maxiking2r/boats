@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   resources :boats, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:show, :new, :create]
   end
+  resources :users, only: [:show] do
+    resources :bookings, only: [:show, :index, :edit, :update, :destroy]
+  end
 end
