@@ -1,9 +1,10 @@
 <div class="container">
 
   <h1><%= @boat.description %></h1>
-  <p>Who is renting? <%= @boat.user.first_name %> <%= @boat.user.last_name %></p>
+  <p>Who is renting out the boat? <%= @boat.user.first_name %> <%= @boat.user.last_name %></p>
 
 
 </div>
 
-  <%= link_to "Show all boats", boats_path %>
+  <%= link_to "Show all boats", boats_path, class: "btn btn-primary btn-lg" %>
+  <%= link_to "Make a booking", new_boat_booking_path(@boat), class: "btn btn-primary btn-lg" %>
