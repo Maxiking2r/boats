@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_boat, only: [:create]
+  before_action :set_boat, only: [:create, :new]
 
   def index
     @user = current_user
@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.boat = @boat
     if @booking.save!
-      redirect_to root_path
+      redirect_to bookings_path
     else
       render :new
     end

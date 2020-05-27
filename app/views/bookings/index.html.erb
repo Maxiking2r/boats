@@ -3,12 +3,13 @@
 <ul>
   <% @bookings.each do |booking| %>
     <li> Start Date: <%= booking.start_date %> | End Date: <%= booking.end_date %></li>
-    <li> Booking: <%= booking.confirmed %></li>
+    <li> Confirmed: <%= booking.confirmed %></li>
     <li> Boat: <%= booking.boat_id %></li>
+    <li> <%= link_to "#{booking.boat.description}", booking_path(booking)%></li>
   <% end %>
 </ul>
 
-<%= link_to "Go back to Boats", boats_path, class: "btn btn-primary btn-lg" %>
+<%= link_to "Discover more boats", boats_path, class: "btn btn-primary btn-lg" %>
 
 <!-- "start_date"
 "end_date"
