@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  
   before_action :set_boat, only: [:create, :new]
 
   def index
