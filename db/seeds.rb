@@ -29,7 +29,7 @@ puts 'Creating 9 fake data types...'
   booking = Booking.create!(
     start_date: "#{Faker::Date.between(from: 2.days.ago, to: Date.today)}",
     end_date: "#{Faker::Date.forward(days: 23)}",
-    confirmed: "random.choice([True, False])",
+    # confirmed: "random.choice([True, False])",
     user_id: User.first.id,
     boat_id: Boat.first.id
   )
