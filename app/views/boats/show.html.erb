@@ -2,8 +2,9 @@
 
   <h1><%= @boat.description %></h1>
   <p>Who is renting out the boat? <%= @boat.user.first_name %> <%= @boat.user.last_name %></p>
-
-
+  <% @boat.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
 </div>
 
   <%= link_to "Show all boats", boats_path, class: "btn btn-primary btn-lg" %>
