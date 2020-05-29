@@ -1,8 +1,11 @@
 <h2>Your Boat 🛶</h2>
 
 <ul>
+    <li> Name: <%= booking.boat.name %></li>
     <li> Start Date: <%= @booking.start_date %> | End Date: <%= @booking.end_date %></li>
-    <li> Booking: <%= @booking.boat.description %></li>
+    <li> Category: <%= @booking.boat.category %></li>
+    <li> Capacity: <%= @booking.boat.number_of_people %> people</li>
+    <li> Description: <%= @booking.boat.description %></li>
 </ul>
 
 <% if current_user.id == @booking.boat.user_id %>
