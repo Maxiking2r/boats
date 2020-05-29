@@ -1,11 +1,22 @@
 <h2>Your Boat Bookings ⛵️</h2>
 
 <ul>
-  <% @bookings.each do |booking| %>
+  <% @bookings_as_owner.each do |booking| %>
     <li> Start Date: <%= booking.start_date %> | End Date: <%= booking.end_date %></li>
-    <li> Confirmed: <%= booking.confirmed %></li>
-    <li> Boat: <%= booking.boat_id %></li>
-    <li> <%= link_to "#{booking.boat.description}", booking_path(booking)%></li>
+    <li> Status: <%= booking.confirmed %></li>
+    <li> <%= link_to "#{booking.boat.name}", booking_path(booking)%></li>
+    <%= link_to "Accept", accepted_booking_path(booking), method: :patch %>
+    <%= link_to "Decline", declined_booking_path(booking), method: :patch %>
+  <% end %>
+</ul>
+
+<h2>My Boat Bookings ⛵️</h2>
+
+<ul>
+  <% @bookings_as_renter.each do |booking| %>
+    <li> Start Date: <%= booking.start_date %> | End Date: <%= booking.end_date %></li>
+    <li> Status: <%= booking.confirmed %></li>
+    <li> <%= link_to "#{booking.boat.name}", booking_path(booking)%></li>
   <% end %>
 </ul>
 

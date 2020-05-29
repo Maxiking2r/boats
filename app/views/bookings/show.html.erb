@@ -5,8 +5,17 @@
     <li> Booking: <%= @booking.boat.description %></li>
 </ul>
 
+<% if current_user.id == @booking.boat.user_id %>
+
+<%= link_to "Accept", accepted_booking_path(@booking), method: :patch %>
+<%= link_to "Decline", declined_booking_path(@booking), method: :patch %>
+
+<% else %>
+  <%= @booking.confirmed %>
+<% end %>
 <!-- some code
  -->
 
 <%= link_to "My Bookings", bookings_path, class: "btn btn-primary btn-lg" %>
 
+<!-- View - detail page booking … if current_user == booking.boat.user … show button „accept“ / „decline“; 2 actions -->

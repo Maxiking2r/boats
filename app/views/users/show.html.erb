@@ -1,1 +1,48 @@
-<h1>The user page</h1>
+<div>
+  <h1 class="d-flex justify-content-center">User Dashboard</h1>
+</div>
+<div class="container d-flex justify-content-between">
+
+  <div class="card .rounded" style="width: 18rem;">
+    <div class="card-header">
+      All my boats
+    </div>
+    <div>
+      <ul class="list-group list-group-flush">
+        <% @boats.each do |boat| %>
+        <li class="list-group-item"><%= link_to"#{boat.description}", boat_path(boat)%></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card .rounded" style="width: 18rem;">
+    <div class="card-header">
+      Bookings
+    </div>
+    <div>
+      <ul class="list-group list-group-flush">
+        <% @boats.each do |boat| %>
+        <li class="list-group-item"><%= boat.description %>
+          <br>
+          <% boat.bookings.each do |booking| %>
+            <%= link_to"#{booking.start_date}", booking_path(booking)%></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="card .rounded" style="width: 18rem;">
+    <div class="card-header">
+      My own adventures
+    </div>
+    <div>
+      <ul class="list-group list-group-flush">
+        <% @user.bookings.each do |booking| %>
+            <li class="list-group-item"><%= link_to "#{booking.boat.description}", booking_path(booking)%><br><%= link_to "#{booking.start_date}", booking_path(booking) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
