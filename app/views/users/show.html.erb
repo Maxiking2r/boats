@@ -1,9 +1,9 @@
 <div>
-  <h1 class="d-flex justify-content-center">User Dashboard</h1>
+  <h1 class="d-flex justify-content-center"><%= current_user.first_name %>Dashboard</h1>
 </div>
 <div class="container d-flex justify-content-between">
 
-  <div class="card .rounded" style="width: 18rem;">
+  <div class="card" style="width: 18rem;">
     <div class="card-header">
       All my boats
     </div>
@@ -15,10 +15,9 @@
       </ul>
     </div>
   </div>
-
-  <div class="card .rounded" style="width: 18rem;">
+  <div class="card" style="width: 18rem;">
     <div class="card-header">
-      Bookings
+      Bookings for my boats
     </div>
     <div>
       <ul class="list-group list-group-flush">
@@ -32,7 +31,8 @@
       </ul>
     </div>
   </div>
-  <div class="card .rounded" style="width: 18rem;">
+
+  <div class="card" style="width: 18rem;">
     <div class="card-header">
       My own adventures
     </div>
@@ -46,3 +46,7 @@
   </div>
 </div>
 
+<div class= "text-center">
+  <button class="btn btn-primary"><%= link_to "Rent out another boat", new_boat_path, class: "btn btn-primary" %></button>
+  <button class="btn btn-primary"><%= link_to "Discover Boats", boats_path, class:"btn btn-primary" %></button>
+</div>
