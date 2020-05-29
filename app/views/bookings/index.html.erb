@@ -6,7 +6,7 @@
     <li> Start Date: <%= booking.start_date %> | End Date: <%= booking.end_date %></li>
     <li> Status: <%= booking.confirmed %></li>
     <li> <%= link_to "#{booking.boat.name}", booking_path(booking)%></li>
-    <%= link_to "Accept", accepted_booking_path(booking), method: :patch, %>
+    <%= link_to "Accept", accepted_booking_path(booking), method: :patch %>
     <%= link_to "Decline", declined_booking_path(booking), method: :patch %>
   <% end %>
 </ul>
