@@ -26,7 +26,7 @@ end
 file1 = URI.open('https://res.cloudinary.com/nexinus/image/upload/v1590679949/sail1_stxy5b.jpg')
 file2 = URI.open('https://res.cloudinary.com/nexinus/image/upload/v1590679949/sail2_go0jtr.jpg')
 boat1 = Boat.new(
-  name: "Santa Maria"
+  name: "Santa Maria",
   city: "#{Faker::Address.city}",
   description: "A nice boat for relaxation.",
   category: "Sailing",
@@ -37,10 +37,10 @@ boat1.photos.attach(io: file1, filename: "sail1_stxy5b.jpg", content_type: "imag
 boat1.photos.attach(io: file2, filename: "sail2_go0jtr.jpg", content_type: "image/jpg")
 boat1.save
 
-file1 = URI.open('https://res.cloudinary.com/nexinus/image/upload/v1590679949/party1_grlxnf.jpg')
-file2 = URI.open('https://res.cloudinary.com/nexinus/image/upload/v1590679949/party2_co5fgt.jpg')
+file1 = URI.open('https://res.cloudinary.com/nexinus/image/upload/v1590746467/black_pearl1_gjep1j.png')
+file2 = URI.open('https://res.cloudinary.com/nexinus/image/upload/v1590746516/black_pearl2_ut9uli.png')
 boat2 = Boat.new(
-  name: "Black Pearl"
+  name: "Black Pearl",
   city: "#{Faker::Address.city}",
   description: "The perfect boat for adventure",
   category: "Speed",
@@ -54,7 +54,7 @@ boat2.save
 file1 = URI.open('https://res.cloudinary.com/nexinus/image/upload/v1590679949/yacht1_dljidc.jpg')
 file2 = URI.open('https://res.cloudinary.com/nexinus/image/upload/v1590679949/yacht2_pfa5yt.jpg')
 boat3 = Boat.new(
-  name: "Super Mario"
+  name: "Super Mario",
   city: "#{Faker::Address.city}",
   description: "Fully set up for party boat!",
   category: "Yacht",
@@ -69,21 +69,21 @@ users = User.all
 booking = Booking.create!(
   start_date: "#{Faker::Date.between(from: 2.days.ago, to: Date.today)}",
   end_date: "#{Faker::Date.forward(days: 23)}",
-  confirmed: "random.choice([True, False])",
+  confirmed: "random.choice([Accepted, Declined, Pending])",
   user: users.sample,
   boat: boat1
 )
 booking = Booking.create!(
   start_date: "#{Faker::Date.between(from: 2.days.ago, to: Date.today)}",
   end_date: "#{Faker::Date.forward(days: 23)}",
-  confirmed: "random.choice([True, False])",
+  confirmed: "random.choice([Accepted, Declined, Pending])",
   user: users.sample,
   boat: boat2
 )
 booking = Booking.create!(
   start_date: "#{Faker::Date.between(from: 2.days.ago, to: Date.today)}",
   end_date: "#{Faker::Date.forward(days: 23)}",
-  confirmed: "random.choice([True, False])",
+  confirmed: "random.choice([Accepted, Declined, Pending])",
   user: users.sample,
   boat: boat3
 )
