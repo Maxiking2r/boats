@@ -1,25 +1,26 @@
 <!-- <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p> -->
 </nav>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1446769482035-e2cbeafda260?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1500917832468-298fa6292e2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60);">
   <div class="container">
     <h1> <strong>BoatsForFriends</strong> - A boat rental service for nature lovers </h1>
     <p> Discover pure nature with different boats: kayak, sailing or speed boat! </p>
-    <%= link_to "Discover Boats", boats_path, class:"btn btn-primary" %>
+    <%= link_to "Discover Boats", boats_path, class:"btn" %>
   </div>
 
+<div class=container-search>
+  <div class="searchbar_cards">
 
-<div class="searchbar_cards">
-
-<div class="boxes" id="city">
+  <div class="boxes" id="city">
     <div class="description">City</div>
     <input placeholder="Your preferred water?" value="">
   </label>
-</div>
+  </div>
 
 <div class="boxes" id="dates">
   <div class="description">Dates</div>
-    <input placeholder="Arrival / Leaving" type=flatpickr>
+    <input placeholder="Arrival" class=datepicker type=string>
+    <input placeholder="Leaving" class=datepicker id=secondRangeInput type=string>
     </label>
 </div>
 
@@ -29,8 +30,9 @@
   </label>
 </div>
 
-<%= link_to "Search", boats_path, class:"btn btn-primary" %>
+<%= link_to "Search", boats_path, class:"btn" %>
 
+</div>
 </div>
 </div>
 
