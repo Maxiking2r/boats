@@ -1,8 +1,11 @@
 .navbar .navbar-expand-sm .navbar-light .navbar-lewagon {
-  position: fixed !important;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .navbar-lewagon {
+  color: #1C6CA7;
   justify-content: space-between;
   background: white;
 }
@@ -15,4 +18,13 @@
   width: 40px;
 }
 
+#rent {
+  background-color: #1C6CA7;
+  color: white;
+}
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
