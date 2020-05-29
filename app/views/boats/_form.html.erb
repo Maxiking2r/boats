@@ -1,0 +1,8 @@
+<%= simple_form_for(@boat) do |f| %>
+  <%= f.input :city %>
+  <%= f.input :description %>
+  <%= f.input :number_of_people %>
+  <%= f.input :category %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.button :submit, class: "btn btn-primary btn-lg"%>
+<% end %>

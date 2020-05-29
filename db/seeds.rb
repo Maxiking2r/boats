@@ -6,8 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require "open-uri"
+puts 'Cleaning the database'
+Booking.delete_all
+Boat.delete_all
+User.delete_all
 
-puts 'Creating 9 fake data types...'
+puts 'Creating 9 fake user data...'
 # User.destroy_all
 
 9.times do
@@ -17,21 +22,67 @@ puts 'Creating 9 fake data types...'
     first_name: "#{Faker::Name.first_name}",
     last_name: "#{Faker::Name.last_name}"
   )
-
-  boat = Boat.create!(
-    city: "#{Faker::Address.city}",
-    description: "#{Faker::Quote.robin}",
-    category: "#{Faker::Quote.singular_siegler}",
-    number_of_people: rand(0..5),
-    user_id: User.first.id
-  )
-
-  booking = Booking.create!(
-    start_date: "#{Faker::Date.between(from: 2.days.ago, to: Date.today)}",
-    end_date: "#{Faker::Date.forward(days: 23)}",
-    # confirmed: "random.choice([True, False])",
-    user_id: User.first.id,
-    boat_id: Boat.first.id
-  )
 end
+file1 = URI.open('https://res.cloudinary.com/nexinus/image/upload/v1590679949/sail1_stxy5b.jpg')
+file2 = URI.open('https://res.cloudinary.com/nexinus/image/upload/v1590679949/sail2_go0jtr.jpg')
+boat1 = Boat.new(
+  city: "#{Faker::Address.city}",
+  description: "A nice boat for relaxation.",
+  category: "Sailing",
+  number_of_people: rand(1..5),
+  user: User.last
+)
+boat1.photos.attach(io: file1, filename: "sail1_stxy5b.jpg", content_type: "image/jpg")
+boat1.photos.attach(io: file2, filename: "sail2_go0jtr.jpg", content_type: "image/jpg")
+boat1.save
+
+file1 = URI.open('https://res.cloudinary.com/nexinus/image/upload/v1590679949/party1_grlxnf.jpg')
+file2 = URI.open('https://res.cloudinary.com/nexinus/image/upload/v1590679949/party2_co5fgt.jpg')
+boat2 = Boat.new(
+  city: "#{Faker::Address.city}",
+  description: "The perfect boat for adventure",
+  category: "Speed",
+  number_of_people: rand(1..5),
+  user: User.last
+)
+boat2.photos.attach(io: file1, filename: "party1_grlxnf.jpg", content_type: "image/jpg")
+boat2.photos.attach(io: file2, filename: "party2_co5fgt.jpg", content_type: "image/jpg")
+boat2.save
+
+file1 = URI.open('https://res.cloudinary.com/nexinus/image/upload/v1590679949/yacht1_dljidc.jpg')
+file2 = URI.open('https://res.cloudinary.com/nexinus/image/upload/v1590679949/yacht2_pfa5yt.jpg')
+boat3 = Boat.new(
+  city: "#{Faker::Address.city}",
+  description: "Fully set up for party boat!",
+  category: "Yacht",
+  number_of_people: rand(1..5),
+  user: User.last
+)
+boat3.photos.attach(io: file1, filename: "yacht1_dljidc.jpg", content_type: "image/jpg")
+boat3.photos.attach(io: file2, filename: "yacht2_pfa5yt.jpg", content_type: "image/jpg")
+boat3.save
+
+users = User.all
+booking = Booking.create!(
+  start_date: "#{Faker::Date.between(from: 2.days.ago, to: Date.today)}",
+  end_date: "#{Faker::Date.forward(days: 23)}",
+  confirmed: "random.choice([True, False])",
+  user: users.sample,
+  boat: boat1
+)
+booking = Booking.create!(
+  start_date: "#{Faker::Date.between(from: 2.days.ago, to: Date.today)}",
+  end_date: "#{Faker::Date.forward(days: 23)}",
+  confirmed: "random.choice([True, False])",
+  user: users.sample,
+  boat: boat2
+)
+booking = Booking.create!(
+  start_date: "#{Faker::Date.between(from: 2.days.ago, to: Date.today)}",
+  end_date: "#{Faker::Date.forward(days: 23)}",
+  confirmed: "random.choice([True, False])",
+  user: users.sample,
+  boat: boat3
+)
+
 puts 'Finished!'
